@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.vinyl.app.databinding.FragmentFirstBinding
+import android.widget.Button
+import android.widget.LinearLayout
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -32,9 +34,9 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
+        /*binding.fetchArtists.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
+        }*/
     }
 
     override fun onDestroyView() {
