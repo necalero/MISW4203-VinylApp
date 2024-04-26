@@ -12,7 +12,7 @@ class VolleyBroker constructor(context: Context) {
     val instance: RequestQueue = Volley.newRequestQueue(context.applicationContext)
 
     companion object{
-        private const val BASE_URL= "https://vynils-back-heroku.herokuapp.com/"
+        private const val BASE_URL= "https://my.api.mockaroo.com/"
         fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
             return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
         }

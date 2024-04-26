@@ -15,10 +15,16 @@ import android.content.Intent
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.LinearLayout
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.android.volley.Response
 import com.vinyl.app.brokers.VolleyBroker
 import com.google.android.material.textfield.TextInputEditText
+import org.json.JSONArray
+import org.json.JSONException
 import org.json.JSONObject
+import com.vinyl.app.Artist
+import com.vinyl.app.databinding.FragmentFirstBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var volleyBroker: VolleyBroker
@@ -44,11 +50,48 @@ class MainActivity : AppCompatActivity() {
 
         val getButton: Button = findViewById(R.id.fetch_artists)
         val getResultTextView : TextView = findViewById(R.id.get_artists)
+        val containerLayout: LinearLayout = findViewById(R.id.names_layout)
         getButton.setOnClickListener {
-            volleyBroker.instance.add(VolleyBroker.getRequest("artists",
+            volleyBroker.instance.add(VolleyBroker.getRequest("artists.json?key=780e6390",
                 { response ->
-                    // Display the first 500 characters of the response string.
-                    getResultTextView.text = "Response is: $response"
+                    try {
+                        val jsonArray = JSONArray(response)
+                        val artist = mutableListOf<Artist>()
+
+                        for (i in 0 until jsonArray.length()) {
+                            val jsonObject = jsonArray.getJSONObject(i)
+                            val id = jsonObject.getInt("id")
+                            val nombre = jsonObject.getString("nombre")
+                            val nacionalidad = jsonObject.getString("nacionalidad")
+                            val biografia = jsonObject.getString("biografia")
+
+                            artist.add(Artist(id, nombre, nacionalidad, biografia))
+
+                            val button = Button(this)
+                            button.text = nombre
+                            button.setOnClickListener {
+                                val intent = Intent(this, ArtistDetailActivity::class.java)
+                                intent.putExtra("nombre", nombre)
+                                intent.putExtra("nacionalidad", nacionalidad)
+                                intent.putExtra("biografia", biografia)
+                                startActivity(intent)
+                            }
+                            containerLayout.addView(button)
+
+                        }
+
+                        /*// Mostrar solo los nombres de los artistas en el TextView
+                        val nombres = artist.map { it.nombre }
+                        val nacionalidades = artist.map { it.nacionalidad }
+                        val biografias = artist.map { it.biografia }
+                        //getResultTextView.text = nombres.joinToString("\n")
+                        for (nombre in nombres) {
+
+                        }*/
+                    } catch (e: JSONException) {
+                        Log.e("TAG", "Error parsing JSON: ${e.message}", e)
+                        getResultTextView.text = "Error parsing JSON: ${e.message}"
+                    }
                 },
                 {
                     Log.d("TAG", it.toString())
