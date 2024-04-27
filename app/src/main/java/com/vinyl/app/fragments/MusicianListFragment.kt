@@ -76,6 +76,7 @@ class MusicianListFragment : Fragment() {
             intent.putExtra(MUSICIAN_DESCRIPTION, musician.description)
             intent.putExtra(MUSICIAN_BIRTHDATE, musician.birthDate)
             intent.putExtra(MUSICIAN_IMAGE, musician.image)
+            startActivity(intent)
 
         }
     }

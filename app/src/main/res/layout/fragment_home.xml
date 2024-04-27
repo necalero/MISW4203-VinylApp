@@ -87,6 +87,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/collectors_button"
                     android:layout_width="@dimen/_130sdp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"

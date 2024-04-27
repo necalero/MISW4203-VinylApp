@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
+import com.vinyl.app.activities.MusicianDetailActivity
 import com.vinyl.app.activities.MusicianListActivity
 import com.vinyl.app.adapters.AlbumCatalogAdapter
 import com.vinyl.app.databinding.FragmentHomeBinding
@@ -55,6 +56,8 @@ class HomeFragment : Fragment() {
         observeAlbums()*/
 
         onArtistButtonClick()
+        onCollectorButtonClick()
+
 
         loadAlbums()
 
@@ -65,6 +68,10 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, MusicianListActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun onCollectorButtonClick() {
+        
     }
 
     private fun loadAlbums() {
