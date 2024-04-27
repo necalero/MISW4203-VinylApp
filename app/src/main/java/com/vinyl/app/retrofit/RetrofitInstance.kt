@@ -5,11 +5,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
 
-    val api: AlbumApi by lazy {
+    val api: VinylApi by lazy {
         Retrofit.Builder()
             .baseUrl("https://localhost:3000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(AlbumApi::class.java)
+            .create(VinylApi::class.java)
     }
+
+
+
+
 }

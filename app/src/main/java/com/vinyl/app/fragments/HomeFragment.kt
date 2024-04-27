@@ -1,24 +1,19 @@
 package com.vinyl.app.fragments
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.vinyl.app.R
+import com.vinyl.app.activities.MusicianListActivity
 import com.vinyl.app.adapters.AlbumCatalogAdapter
 import com.vinyl.app.databinding.FragmentHomeBinding
 import com.vinyl.app.pojo.Album
-import com.vinyl.app.retrofit.RetrofitInstance
 import com.vinyl.app.viewmodel.HomeViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
@@ -59,8 +54,17 @@ class HomeFragment : Fragment() {
         /*homeMVVM.getAlbums()
         observeAlbums()*/
 
+        onArtistButtonClick()
+
         loadAlbums()
 
+    }
+
+    private fun onArtistButtonClick() {
+        binding.artistsButton.setOnClickListener {
+            val intent = Intent(activity, MusicianListActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadAlbums() {
@@ -71,6 +75,7 @@ class HomeFragment : Fragment() {
         // Add some mock albums to the list
         mockAlbums.add(
             Album(
+                id = "1",
                 cover = "https://i.scdn.co/image/ab67616d0000b273548f7ec52da7313de0c5e4a0",
                 description = "Bad Bunny's groundbreaking album that broke Latin music records.",
                 genre = "Latin Trap, Reggaeton",
@@ -82,6 +87,7 @@ class HomeFragment : Fragment() {
 
         mockAlbums.add(
             Album(
+                id = "2",
                 cover = "https://i.scdn.co/image/ab67616d0000b273f1aad814a40ec7419c234242",
                 description = "Feid's critically acclaimed album showcasing his smooth vocals and catchy melodies.",
                 genre = "Latin Pop, Reggaeton",
@@ -93,6 +99,7 @@ class HomeFragment : Fragment() {
 
         mockAlbums.add(
             Album(
+                id = "3",
                 cover = "https://upload.wikimedia.org/wikipedia/en/9/95/Karol_G_-_KG0516.png",
                 description = "Karol G's empowering album celebrating female strength and confidence.",
                 genre = "Reggaeton, Latin Trap",
@@ -105,6 +112,7 @@ class HomeFragment : Fragment() {
 
         mockAlbums.add(
             Album(
+                id = "4",
                 cover = "https://cdns-images.dzcdn.net/images/cover/2194275a797bd8d5ed038b61b053813a/500x500.jpg",
                 description = "Mora's introspective album exploring themes of love, loss, and resilience.",
                 genre = "Latin Trap, Hip-Hop",
@@ -115,6 +123,7 @@ class HomeFragment : Fragment() {
         )
         mockAlbums.add(
             Album(
+                id = "5",
                 cover = "https://i.scdn.co/image/ab67616d0000b273548f7ec52da7313de0c5e4a0",
                 description = "Bad Bunny's groundbreaking album that broke Latin music records.",
                 genre = "Latin Trap, Reggaeton",
@@ -126,6 +135,7 @@ class HomeFragment : Fragment() {
 
         mockAlbums.add(
             Album(
+                id = "6",
                 cover = "https://i.scdn.co/image/ab67616d0000b273f1aad814a40ec7419c234242",
                 description = "Feid's critically acclaimed album showcasing his smooth vocals and catchy melodies.",
                 genre = "Latin Pop, Reggaeton",
@@ -137,6 +147,7 @@ class HomeFragment : Fragment() {
 
         mockAlbums.add(
             Album(
+                id = "7",
                 cover = "https://upload.wikimedia.org/wikipedia/en/9/95/Karol_G_-_KG0516.png",
                 description = "Karol G's empowering album celebrating female strength and confidence.",
                 genre = "Reggaeton, Latin Trap",
@@ -149,6 +160,7 @@ class HomeFragment : Fragment() {
 
         mockAlbums.add(
             Album(
+                id = "8",
                 cover = "https://cdns-images.dzcdn.net/images/cover/2194275a797bd8d5ed038b61b053813a/500x500.jpg",
                 description = "Mora's introspective album exploring themes of love, loss, and resilience.",
                 genre = "Latin Trap, Hip-Hop",

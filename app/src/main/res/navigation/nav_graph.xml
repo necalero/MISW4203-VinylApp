@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/artistDetailFragment"
-        android:name="com.vinyl.app.fragments.ArtistDetailFragment"
+        android:name="com.vinyl.app.fragments.MusicianDetailFragment"
         android:label="fragment_artist_detail"
-        tools:layout="@layout/fragment_artist_detail" />
+        tools:layout="@layout/fragment_musician_detail" />
 </navigation>

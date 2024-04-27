@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.activity)
     val navVersion = "2.7.7"
 
     implementation(libs.androidx.core.ktx)

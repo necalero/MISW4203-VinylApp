@@ -51,6 +51,7 @@
                 app:layout_constraintTop_toBottomOf="@id/linear_header">
 
                 <LinearLayout
+                    android:id="@+id/artists_button"
                     android:layout_width="@dimen/_130sdp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -58,7 +59,7 @@
                     app:layout_constraintTop_toBottomOf="@id/linear_header">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/artists_button"
+                        android:id="@+id/artists_button_card"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_80sdp"
                         app:cardCornerRadius="@dimen/_10sdp"
@@ -142,12 +143,12 @@
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold"/>
 
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rec_view_albums"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="none"/>
-
 
 
             </LinearLayout>
