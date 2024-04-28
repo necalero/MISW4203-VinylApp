@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -39,7 +40,7 @@ class MusicianListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-    //    homeMVVM = ViewModelProviders.of(this).get(MusicianViewModel::class.java)
+        musicianMVVM = ViewModelProviders.of(this)[MusicianViewModel::class.java]
         musicianListAdapter = MusicianListAdapter()
 
     }
@@ -57,11 +58,10 @@ class MusicianListFragment : Fragment() {
 
         prepareListRecyclerView()
 
-        //TODO: Implement retrofit logic to load musician cards
-        /*musicianMVVM.getMusicians()
-        observeMusicians()*/
+        musicianMVVM.getMusicians()
+        observeMusicians()
 
-        loadMusicians()
+//        loadMusicians()
 
 
         onMusicianClick()
@@ -163,12 +163,9 @@ class MusicianListFragment : Fragment() {
         }
     }
 
-    private fun observeAlbums() {
-        musicianMVVM.observeMusiciansLiveData().observe(viewLifecycleOwner, object: Observer<List<Musician>> {
-            override fun onChanged(value: List<Musician>) {
-                TODO("Implement logic to load cards")
-            }
-
-        })
+    private fun observeMusicians() {
+        musicianMVVM.observeMusiciansLiveData().observe(viewLifecycleOwner
+        ) { musicianList ->
+            musicianListAdapter.setMusicians(musicianList = musicianList as ArrayList<Musician>) }
     }
 }
