@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text="Artistas"
         android:gravity="center"
-        android:textSize="@dimen/_30sdp"/>
+        android:textSize="@dimen/_20sdp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_view_musicians"
