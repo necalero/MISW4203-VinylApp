@@ -40,6 +40,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.espresso.contrib)
     val navVersion = "2.7.7"
 
     implementation(libs.androidx.core.ktx)
