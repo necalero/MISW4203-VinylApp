@@ -16,14 +16,20 @@
 
 ![Captura de pantalla 2024-04-28 a la(s) 12 10 19](https://github.com/necalero/MISW4203-VinylApp/assets/142345624/0b366f72-3e74-4a72-a7ca-cc3afd50e605)
 
+9. Dirigirse al botón Artistas y ver el listado de Artistas. Al elegir un artista y darle clic sobre su nombre se mostrará el detalle de el artista seleccionado.
+
 ### Pruebas
 1. Ir al archivo TestArtists
 ![Captura de pantalla 2024-04-28 a la(s) 12 41 24](https://github.com/necalero/MISW4203-VinylApp/assets/142345624/e4f3e29a-8061-4d3e-8ffe-43ffe8143cd6)
 2. Es posible que salga en rojo el paquete contrib. Tocar darle clic a contrib y hacer la sugerencia que arroja Android Studio de implementación de dependencias
 ![Captura de pantalla 2024-04-28 a la(s) 12 40 09](https://github.com/necalero/MISW4203-VinylApp/assets/142345624/b980934c-efdd-4b16-958a-bea81d0741c3)
 3. Correr las pruebas (Run 'TestArtists')
+
 ![Captura de pantalla 2024-04-28 a la(s) 12 43 52](https://github.com/necalero/MISW4203-VinylApp/assets/142345624/c0a271a9-1d24-48bc-9aa4-332abb7c60b5)
+
 4. Ver resultado de las pruebas (todas deben salir exitosas)
 ![Captura de pantalla 2024-04-28 a la(s) 12 45 42](https://github.com/necalero/MISW4203-VinylApp/assets/142345624/809a3800-419e-42f8-b38a-8cd369b95a84)
+
 5. (Opcional) En la línea 30 del archivo TestArtists.java se le puede cambiar el nombre del artista que se quiere probar.
+
 ![Captura de pantalla 2024-04-28 a la(s) 12 47 08](https://github.com/necalero/MISW4203-VinylApp/assets/142345624/c88dea9e-b4a6-446b-ba3e-bd865c7be4c9)
