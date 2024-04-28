@@ -34,4 +34,4 @@
 
 ![Captura de pantalla 2024-04-28 a la(s) 12 47 08](https://github.com/necalero/MISW4203-VinylApp/assets/142345624/c88dea9e-b4a6-446b-ba3e-bd865c7be4c9)
 
-> Nota: Se recomienda desactiva las animaciones del celular para que la prueba sea más efectiva. Siga los pasos del siguiente enlace [How to disable interface animations in Android 10](https://mcmw.abilitynet.org.uk/how-disable-interface-animations-android-10) para realizar esta desactivación.
+> Nota: Se recomienda desactivar las animaciones del celular donde se realizan las pruebas para que estas sean más efectivas. Siga los pasos del siguiente enlace [How to disable interface animations in Android 10](https://mcmw.abilitynet.org.uk/how-disable-interface-animations-android-10) para realizar esta desactivación.
