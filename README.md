@@ -33,3 +33,5 @@
 5. (Opcional) En la línea 30 del archivo TestArtists.java se le puede cambiar el nombre del artista que se quiere probar.
 
 ![Captura de pantalla 2024-04-28 a la(s) 12 47 08](https://github.com/necalero/MISW4203-VinylApp/assets/142345624/c88dea9e-b4a6-446b-ba3e-bd865c7be4c9)
+
+> Nota: Se recomienda desactiva las animaciones del celular para que la prueba sea más efectiva. Siga los pasos del siguiente enlace [How to disable interface animations in Android 10](https://mcmw.abilitynet.org.uk/how-disable-interface-animations-android-10) para realizar esta desactivación.
