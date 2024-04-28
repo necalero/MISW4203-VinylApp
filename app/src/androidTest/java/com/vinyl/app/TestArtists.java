@@ -27,7 +27,7 @@ public class TestArtists {
     @Rule
     public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<>(MainActivity.class);
 
-    public String ArtistName = "Feid";
+    public String ArtistName = "Frankie Ruiz";
 
     @Test
     public void artistsViewTest() {
