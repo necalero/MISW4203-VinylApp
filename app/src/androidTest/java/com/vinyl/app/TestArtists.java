@@ -38,7 +38,7 @@ public class TestArtists {
         artistsView.check(matches(isDisplayed()));
         artistsView.perform(scrollToPosition(0));
 
-        ViewInteraction artistName = onView(allOf(withId(R.id.musician_name_tv), isDescendantOfA(withId(R.id.rec_view_musicians)), withText(ArtistName)));
+        ViewInteraction artistName = onView(allOf(withId(R.id.musician_name), isDescendantOfA(withId(R.id.rec_view_musicians)), withText(ArtistName)));
         artistName.check(matches(isDisplayed()));
     }
 
@@ -51,7 +51,7 @@ public class TestArtists {
         artistsView.check(matches(isDisplayed()));
         artistsView.perform(scrollToPosition(0));
 
-        ViewInteraction artistName = onView(allOf(withId(R.id.musician_name_tv), isDescendantOfA(withId(R.id.rec_view_musicians)), withText(ArtistName)));
+        ViewInteraction artistName = onView(allOf(withId(R.id.musician_name), isDescendantOfA(withId(R.id.rec_view_musicians)), withText(ArtistName)));
         artistName.perform(click());
 
         ViewInteraction artistNameDetail = onView(allOf(withId(R.id.artist_name_tv), withText(ArtistName)));
