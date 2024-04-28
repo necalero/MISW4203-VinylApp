@@ -7,7 +7,7 @@ object RetrofitInstance {
 
     val api: VinylApi by lazy {
         Retrofit.Builder()
-            .baseUrl("https://localhost:3000/")
+            .baseUrl("https://vynils.santicode.dev/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(VinylApi::class.java)

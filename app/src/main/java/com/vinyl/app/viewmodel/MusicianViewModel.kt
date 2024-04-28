@@ -3,13 +3,14 @@ package com.vinyl.app.viewmodel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.vinyl.app.pojo.Musician
 import com.vinyl.app.retrofit.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MusicianViewModel {
+class MusicianViewModel(): ViewModel() {
 
     private var musiciansLiveData = MutableLiveData<List<Musician>>()
 

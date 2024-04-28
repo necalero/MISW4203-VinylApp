@@ -6,10 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
-import com.vinyl.app.activities.MusicianDetailActivity
 import com.vinyl.app.activities.MusicianListActivity
 import com.vinyl.app.adapters.AlbumCatalogAdapter
 import com.vinyl.app.databinding.FragmentHomeBinding
@@ -24,7 +23,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        homeMVVM = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        homeMVVM = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         albumCatalogAdapter = AlbumCatalogAdapter()
 
     }
@@ -49,17 +48,16 @@ class HomeFragment : Fragment() {
             .load("https://images.pexels.com/photos/908965/pexels-photo-908965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
             .into(binding.colectorsImg)
 
-        prepareCatalogRecyclerView()
+        prepareAlbumListRecyclerView()
 
-        //TODO: Implement retrofit logic to load album cards
-        /*homeMVVM.getAlbums()
-        observeAlbums()*/
+        homeMVVM.getAlbums()
+        observeAlbums()
 
         onArtistButtonClick()
         onCollectorButtonClick()
 
-
-        loadAlbums()
+//
+//        loadAlbums()
 
     }
 
@@ -74,6 +72,7 @@ class HomeFragment : Fragment() {
         
     }
 
+    // FUNCION FOR TESTING
     private fun loadAlbums() {
 
         // Create an empty list to store the mock albums
@@ -180,7 +179,7 @@ class HomeFragment : Fragment() {
         albumCatalogAdapter.setAlbums(mockAlbums)
     }
 
-    private fun prepareCatalogRecyclerView() {
+    private fun prepareAlbumListRecyclerView() {
         binding.recViewAlbums.apply {
             layoutManager = GridLayoutManager(activity,2,GridLayoutManager.VERTICAL,false)
             adapter = albumCatalogAdapter
@@ -190,12 +189,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeAlbums() {
-        homeMVVM.observeAlbumsLiveData().observe(viewLifecycleOwner, object: Observer<List<Album>>{
-            override fun onChanged(value: List<Album>) {
-                TODO("Implement logic to load cards")
-            }
-
-        })
+        homeMVVM.observeAlbumsLiveData().observe(viewLifecycleOwner
+        ) { albumList ->
+                albumCatalogAdapter.setAlbums(albumList = albumList as ArrayList<Album>)
+        }
     }
 
 
