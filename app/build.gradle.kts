@@ -53,6 +53,17 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    testImplementation("org.mockito:mockito-core:3.12.4")
+
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+
+    testImplementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
+
+
+
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
