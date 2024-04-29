@@ -62,6 +62,12 @@ dependencies {
 
     testImplementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
 
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+
+    testImplementation("org.mockito:mockito-core:3.12.4")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+
 
 
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
