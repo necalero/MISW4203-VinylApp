@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
+import com.vinyl.app.activities.AlbumDetailActivity
 import com.vinyl.app.activities.MusicianListActivity
 import com.vinyl.app.adapters.AlbumCatalogAdapter
 import com.vinyl.app.databinding.FragmentHomeBinding
@@ -24,7 +25,6 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homeMVVM = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        albumCatalogAdapter = AlbumCatalogAdapter()
 
     }
 
@@ -68,8 +68,15 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun onAlbumButtonClick() {
+        binding.artistsButton.setOnClickListener {
+            val intent = Intent(activity, MusicianListActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun onCollectorButtonClick() {
-        
+
     }
 
     // FUNCION FOR TESTING
@@ -180,11 +187,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun prepareAlbumListRecyclerView() {
+        albumCatalogAdapter = AlbumCatalogAdapter { album ->
+            val intent = Intent(activity, AlbumDetailActivity::class.java).apply {
+                putExtra("albumId", album.id)
+            }
+            startActivity(intent)
+        }
         binding.recViewAlbums.apply {
-            layoutManager = GridLayoutManager(activity,2,GridLayoutManager.VERTICAL,false)
+            layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
             adapter = albumCatalogAdapter
-
-
         }
     }
 

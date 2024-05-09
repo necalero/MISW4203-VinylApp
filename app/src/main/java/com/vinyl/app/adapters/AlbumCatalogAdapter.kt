@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.vinyl.app.databinding.AlbumCatalogBinding
 import com.vinyl.app.pojo.Album
-
-class AlbumCatalogAdapter:RecyclerView.Adapter<AlbumCatalogAdapter.AlbumCatalogViewHolder>() {
-
+class AlbumCatalogAdapter(private val onAlbumClick: (Album) -> Unit) : RecyclerView.Adapter<AlbumCatalogAdapter.AlbumCatalogViewHolder>() {
 
     private var albumList = ArrayList<Album>()
 
@@ -18,22 +16,27 @@ class AlbumCatalogAdapter:RecyclerView.Adapter<AlbumCatalogAdapter.AlbumCatalogV
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumCatalogViewHolder {
-        return AlbumCatalogViewHolder(AlbumCatalogBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        val binding = AlbumCatalogBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return AlbumCatalogViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: AlbumCatalogViewHolder, position: Int) {
-        Glide.with(holder.itemView)
-            .load(albumList[position].cover)
-            .into(holder.binding.albumImg)
-        holder.binding.albumNameTv.text = albumList[position].name
+        val album = albumList[position]
+        with(holder.binding) {
+            Glide.with(holder.itemView.context)
+                .load(album.cover)
+                .into(albumImg)
+            albumNameTv.text = album.name
+
+            root.setOnClickListener {
+                onAlbumClick(album)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
         return albumList.size
     }
 
-
-
-    class AlbumCatalogViewHolder(var binding: AlbumCatalogBinding):RecyclerView.ViewHolder(binding.root)
-
+    class AlbumCatalogViewHolder(var binding: AlbumCatalogBinding): RecyclerView.ViewHolder(binding.root)
 }

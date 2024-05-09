@@ -34,8 +34,6 @@ class MusicianListFragment : Fragment() {
         const val MUSICIAN_BIRTHDATE = "com.vinyl.app.fragments.birthdate"
         const val MUSICIAN_DESCRIPTION = "com.vinyl.app.fragments.description"
         const val MUSICIAN_IMAGE = "com.vinyl.app.fragments.image"
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
