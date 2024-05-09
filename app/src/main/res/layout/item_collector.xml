@@ -13,6 +13,13 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
+        <ImageView
+            android:id="@+id/collector_image"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circular"
+            android:src="@android:drawable/ic_menu_gallery"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,6 +40,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:text="Correo del coleccionista" />
+
+            <TextView
+                android:id="@+id/collector_telephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Telefono del coleccionista" />
 
         </LinearLayout>
 
