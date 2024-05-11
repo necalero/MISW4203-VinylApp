@@ -64,6 +64,7 @@
                         app:cardUseCompatPadding="true">
                         
                         <ImageView
+                            android:id="@+id/artists_img"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/cardview_dark_background"
@@ -83,6 +84,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/collectors_button"
                     android:layout_width="@dimen/_130sdp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -96,6 +98,7 @@
                         app:cardUseCompatPadding="true">
 
                         <ImageView
+                            android:id="@+id/collectors_img"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/cardview_dark_background"

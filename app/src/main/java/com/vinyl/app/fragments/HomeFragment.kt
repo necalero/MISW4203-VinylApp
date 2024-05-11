@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
 
         Glide.with(this@HomeFragment)
             .load("https://images.pexels.com/photos/908965/pexels-photo-908965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
-            .into(binding.colectorsImg)
+            .into(binding.collectorsImg)
 
         prepareAlbumListRecyclerView()
 

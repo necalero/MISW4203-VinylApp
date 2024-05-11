@@ -20,6 +20,7 @@
 
 
             <TextView
+                android:id="@+id/collector_name_tv"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_30sdp"
@@ -30,6 +31,7 @@
                 android:textStyle="bold"/>
 
             <TextView
+                android:id="@+id/collector_email_tv"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center"

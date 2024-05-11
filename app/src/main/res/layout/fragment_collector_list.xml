@@ -16,6 +16,7 @@
         android:textSize="@dimen/_20sdp"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_view_collectors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/collectors_title"
