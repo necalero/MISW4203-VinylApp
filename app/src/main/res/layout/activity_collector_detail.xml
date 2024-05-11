@@ -20,7 +20,6 @@
 
 
             <TextView
-                android:id="@+id/collector_name_tv"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_30sdp"
@@ -31,7 +30,6 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/collector_email_tv"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center"
@@ -61,7 +59,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/favorite_artists_tv"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     app:layout_constraintTop_toTopOf="parent"
@@ -71,7 +68,6 @@
                     android:textSize="@dimen/_15sdp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rec_view_fav_musicians"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/artists_title"
@@ -101,7 +97,6 @@
                     android:textSize="@dimen/_15sdp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rec_view_albums"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/collector_albums_tv"
