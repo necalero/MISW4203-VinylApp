@@ -10,31 +10,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginStart="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/collector_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp">
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Nombre del coleccionista" />
 
-            <TextView
-                android:id="@+id/collector_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="Nombre del coleccionista" />
-
-            <TextView
-                android:id="@+id/collector_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:text="Correo del coleccionista" />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/collector_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Correo del coleccionista" />
 
     </LinearLayout>
 

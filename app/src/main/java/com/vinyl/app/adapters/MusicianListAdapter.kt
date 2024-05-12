@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.vinyl.app.R
-import com.vinyl.app.databinding.MusicianListItemBinding
 import com.vinyl.app.pojo.Musician
 
 class MusicianListAdapter : RecyclerView.Adapter<MusicianListAdapter.MusicianListViewHolder>() {
