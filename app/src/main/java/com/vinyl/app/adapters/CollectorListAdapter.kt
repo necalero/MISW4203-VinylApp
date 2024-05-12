@@ -3,6 +3,7 @@ package com.vinyl.app.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vinyl.app.R
@@ -36,8 +37,10 @@ class CollectorListAdapter : RecyclerView.Adapter<CollectorListAdapter.Collector
     }
 
     inner class CollectorListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val collectorImage: ImageView = itemView.findViewById(R.id.collector_image)
         private val collectorName: TextView = itemView.findViewById(R.id.collector_name)
         private val collectorEmail: TextView = itemView.findViewById(R.id.collector_email)
+        private val collectorTelephone: TextView = itemView.findViewById(R.id.collector_telephone)
 
         fun bind(collector: Collector) {
             collectorName.text = collector.name
