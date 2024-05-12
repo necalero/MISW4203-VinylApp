@@ -20,6 +20,9 @@ import com.vinyl.app.databinding.FragmentMusicianListBinding
 import com.vinyl.app.pojo.Album
 import com.vinyl.app.pojo.Musician
 import com.vinyl.app.viewmodel.MusicianViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.vinyl.app.viewmodel.MusicianViewModelFactory
+
 class MusicianListFragment : Fragment() {
 
 
@@ -38,7 +41,8 @@ class MusicianListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        musicianMVVM = ViewModelProviders.of(this)[MusicianViewModel::class.java]
+        val factory = MusicianViewModelFactory(requireContext())
+        musicianMVVM = ViewModelProvider(this, factory)[MusicianViewModel::class.java]
         musicianListAdapter = MusicianListAdapter()
 
     }
