@@ -18,9 +18,13 @@ interface VinylApi {
     @GET("musicians/{id}")
     fun getMusician(@Path("id") id:String):Call<Musician>
 
+    @GET("albums/{id}")
+    fun getAlbum(@Path("id") id:String):Call<Album>
+
     @GET("collectors")
     fun getCollectors(): Call<List<Collector>>
 
     @GET("collectors/{id}")
     fun getCollector(@Path("id") id:String):Call<Collector>
+
 }
