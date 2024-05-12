@@ -11,57 +11,48 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CollectorViewModel():ViewModel() {
+class CollectorViewModel : ViewModel() {
 
-    private var collectorsLiveData = MutableLiveData<List<Collector>>()
+    private val collectorsLiveData = MutableLiveData<List<Collector>>()
+    private val collectorDetailLiveData = MutableLiveData<Collector>()
 
-    private var collectorDetailLiveData = MutableLiveData<Collector>()
-
-    fun getCollectors(){
-
+    fun getCollectors() {
         RetrofitInstance.api.getCollectors().enqueue(object : Callback<List<Collector>> {
             override fun onResponse(call: Call<List<Collector>>, response: Response<List<Collector>>) {
-                if(response.body() != null)
-                {
-                    val collectors : List<Collector> = response.body()!!
-                    collectorsLiveData.value = collectors
-                }else
-                {
-                    return
+                if (response.isSuccessful) {
+                    collectorsLiveData.value = response.body() ?: emptyList()
+                } else {
+                    handleFailure("CollectorListFragment", response.message())
                 }
             }
 
             override fun onFailure(call: Call<List<Collector>>, t: Throwable) {
-                Log.d("CollectorListFragment", t.message.toString())
+                handleFailure("CollectorListFragment", t.message.toString())
             }
         })
     }
 
-    fun getCollector(id: String){
-
+    fun getCollector(id: String) {
         RetrofitInstance.api.getCollector(id).enqueue(object : Callback<Collector> {
             override fun onResponse(call: Call<Collector>, response: Response<Collector>) {
-                if(response.body() != null)
-                {
-                    val collector : Collector = response.body()!!
-                    collectorDetailLiveData.value = collector
-                }else
-                {
-                    return
+                if (response.isSuccessful) {
+                    collectorDetailLiveData.value = response.body()
+                } else {
+                    handleFailure("CollectorDetailFragment", response.message())
                 }
             }
 
             override fun onFailure(call: Call<Collector>, t: Throwable) {
-                Log.d("CollectorDetailFragment", t.message.toString())
+                handleFailure("CollectorDetailFragment", t.message.toString())
             }
         })
     }
 
-    fun observeCollectorsLiveData(): LiveData<List<Collector>> {
-        return collectorsLiveData
+    private fun handleFailure(tag: String, message: String?) {
+        Log.d(tag, message ?: "Unknown error")
     }
 
-    fun observeCollectorLiveData(): LiveData<Collector> {
-        return collectorDetailLiveData
-    }
+    fun observeCollectorsLiveData(): LiveData<List<Collector>> = collectorsLiveData
+
+    fun observeCollectorLiveData(): LiveData<Collector> = collectorDetailLiveData
 }
