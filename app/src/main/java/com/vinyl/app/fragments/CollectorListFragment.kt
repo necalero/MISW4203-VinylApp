@@ -14,6 +14,8 @@ import com.vinyl.app.adapters.CollectorListAdapter
 import com.vinyl.app.databinding.FragmentCollectorListBinding
 import com.vinyl.app.pojo.Collector
 import com.vinyl.app.viewmodel.CollectorViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.vinyl.app.viewmodel.CollectorViewModelFactory
 
 class CollectorListFragment : Fragment() {
 
@@ -31,7 +33,8 @@ class CollectorListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        collectorMVVM = ViewModelProviders.of(this)[CollectorViewModel::class.java]
+        val factory = CollectorViewModelFactory(requireContext())
+        collectorMVVM = ViewModelProvider(this, factory)[CollectorViewModel::class.java]
         collectorListAdapter = CollectorListAdapter()
 
     }

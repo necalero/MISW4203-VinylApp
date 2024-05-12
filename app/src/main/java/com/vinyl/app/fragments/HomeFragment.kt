@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
@@ -19,6 +20,9 @@ import com.vinyl.app.pojo.Album
 import com.vinyl.app.pojo.Musician
 import com.vinyl.app.viewmodel.CollectorViewModel
 import com.vinyl.app.viewmodel.HomeViewModel
+import com.vinyl.app.viewmodel.HomeViewModelFactory
+import com.vinyl.app.viewmodel.MusicianViewModel
+import com.vinyl.app.viewmodel.MusicianViewModelFactory
 
 class HomeFragment : Fragment() {
 
@@ -30,7 +34,8 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        homeMVVM = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        val factory = HomeViewModelFactory(requireContext())
+        homeMVVM = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
     }
 
