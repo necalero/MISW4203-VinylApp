@@ -30,8 +30,7 @@ class HomeViewModel(private val context: Context) : ViewModel() {
         RetrofitInstance.api.getAlbums().enqueue(object : Callback<List<Album>> {
             override fun onResponse(call: Call<List<Album>>, response: Response<List<Album>>) {
                 if (response.isSuccessful) {
-                    val albums: List<Album> = response.body() ?: emptyList()
-                    cacheManager.addAlbums(albums)
+                    val albums: List<Album> = response.body()?.also { cacheManager.addAlbums(it) } ?: emptyList()
                     albumsLiveData.value = albums
                 } else {
                     return
@@ -39,7 +38,7 @@ class HomeViewModel(private val context: Context) : ViewModel() {
             }
 
             override fun onFailure(call: Call<List<Album>>, t: Throwable) {
-                Log.d("HomeFragment", t.message.toString())
+                Log.e("HomeFragment", t.message.toString())
             }
         })
     }

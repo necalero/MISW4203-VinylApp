@@ -11,26 +11,28 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AlbumViewModel(): ViewModel() {
+
+
+
+class AlbumViewModel : ViewModel() {
 
     private var albumDetailLiveData = MutableLiveData<Album>()
 
-    fun getAlbum(id: String){
-
+    fun getAlbum(id: String) {
         RetrofitInstance.api.getAlbum(id).enqueue(object : Callback<Album> {
             override fun onResponse(call: Call<Album>, response: Response<Album>) {
-                if(response.body() != null)
-                {
-                    val album : Album = response.body()!!
-                    albumDetailLiveData.value = album
-                }else
-                {
-                    return
+                if (response.isSuccessful) {
+                    val album: Album? = response.body()
+                    if (album != null) {
+                        albumDetailLiveData.value = album
+                    }
+                } else {
+                    // Manejar caso de respuesta no exitosa
                 }
             }
 
             override fun onFailure(call: Call<Album>, t: Throwable) {
-                Log.d("AlbumDetailFragment", t.message.toString())
+                Log.e("AlbumDetailFragment", t.message.toString())
             }
         })
     }
@@ -39,3 +41,32 @@ class AlbumViewModel(): ViewModel() {
         return albumDetailLiveData
     }
 }
+
+//class AlbumViewModel(): ViewModel() {
+//
+//    private var albumDetailLiveData = MutableLiveData<Album>()
+//
+//    fun getAlbum(id: String){
+//
+//        RetrofitInstance.api.getAlbum(id).enqueue(object : Callback<Album> {
+//            override fun onResponse(call: Call<Album>, response: Response<Album>) {
+//                if(response.body() != null)
+//                {
+//                    val album : Album = response.body()!!
+//                    albumDetailLiveData.value = album
+//                }else
+//                {
+//                    return
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<Album>, t: Throwable) {
+//                Log.d("AlbumDetailFragment", t.message.toString())
+//            }
+//        })
+//    }
+//
+//    fun observeAlbumLiveData(): LiveData<Album> {
+//        return albumDetailLiveData
+//    }
+//}
