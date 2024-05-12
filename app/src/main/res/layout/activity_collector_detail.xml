@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CollectorDetailActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/collector_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Collector Name"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/collector_email_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="nicolas.calero@gmail.com"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:id="@+id/collector_phone_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="+57 318 364 9884"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="italic"/>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_favorite_artists"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                app:layout_constraintTop_toBottomOf="@+id/collector_phone_tv"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/favorite_artists_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Artistas Favoritos"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_view_fav_musicians"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/artists_title"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:scrollbars="none"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                app:layout_constraintTop_toBottomOf="@+id/linear_layout_favorite_artists"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/collector_albums_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Albumes"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_view_albums"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/collector_albums_tv"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:scrollbars="none"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

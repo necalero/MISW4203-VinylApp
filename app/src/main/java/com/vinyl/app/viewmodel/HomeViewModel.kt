@@ -10,31 +10,29 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel(): ViewModel() {
+class HomeViewModel : ViewModel() {
 
-    private var albumsLiveData = MutableLiveData<List<Album>>()
+    private val albumsLiveData = MutableLiveData<List<Album>>()
 
-    fun getAlbums(){
-        //TODO: Implement retrofit logic to load album cards
+    fun getAlbums() {
         RetrofitInstance.api.getAlbums().enqueue(object : Callback<List<Album>> {
             override fun onResponse(call: Call<List<Album>>, response: Response<List<Album>>) {
-                if(response.body() != null)
-                {
-                    val albums : List<Album> = response.body()!!
-                    albumsLiveData.value = albums
-                }else
-                {
-                    return
+                if (response.isSuccessful) {
+                    albumsLiveData.value = response.body() ?: emptyList()
+                } else {
+                    handleFailure(response.message())
                 }
             }
 
             override fun onFailure(call: Call<List<Album>>, t: Throwable) {
-                Log.d("HomeFragment", t.message.toString())
+                handleFailure(t.message.toString())
             }
         })
     }
 
-    fun observeAlbumsLiveData():LiveData<List<Album>>{
-        return albumsLiveData
+    private fun handleFailure(message: String?) {
+        Log.d("HomeFragment", message ?: "Unknown error")
     }
+
+    fun observeAlbumsLiveData(): LiveData<List<Album>> = albumsLiveData
 }
