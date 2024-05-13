@@ -20,6 +20,9 @@ import com.vinyl.app.databinding.FragmentMusicianListBinding
 import com.vinyl.app.pojo.Album
 import com.vinyl.app.pojo.Musician
 import com.vinyl.app.viewmodel.MusicianViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.vinyl.app.viewmodel.MusicianViewModelFactory
+
 class MusicianListFragment : Fragment() {
 
 
@@ -34,13 +37,12 @@ class MusicianListFragment : Fragment() {
         const val MUSICIAN_BIRTHDATE = "com.vinyl.app.fragments.birthdate"
         const val MUSICIAN_DESCRIPTION = "com.vinyl.app.fragments.description"
         const val MUSICIAN_IMAGE = "com.vinyl.app.fragments.image"
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        musicianMVVM = ViewModelProviders.of(this)[MusicianViewModel::class.java]
+        val factory = MusicianViewModelFactory(requireContext())
+        musicianMVVM = ViewModelProvider(this, factory)[MusicianViewModel::class.java]
         musicianListAdapter = MusicianListAdapter()
 
     }
@@ -55,15 +57,9 @@ class MusicianListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
-
         prepareListRecyclerView()
-
         musicianMVVM.getMusicians()
         observeMusicians()
-
-//        loadMusicians()
-
-
         onMusicianClick()
 
     }

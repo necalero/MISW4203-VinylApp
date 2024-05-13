@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MusicianListActivity">
+    tools:context=".activities.CollectorListActivity">
 
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.vinyl.app.fragments.MusicianListFragment" />
+        android:name="com.vinyl.app.fragments.CollectorListFragment" />
 
 
 

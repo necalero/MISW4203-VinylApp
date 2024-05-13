@@ -27,7 +27,6 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/title_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Vinilos"
@@ -59,7 +58,6 @@
                     app:layout_constraintTop_toBottomOf="@id/linear_header">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/artists_button_card"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_80sdp"
                         app:cardCornerRadius="@dimen/_10sdp"
@@ -75,7 +73,6 @@
                     </androidx.cardview.widget.CardView>
 
                     <TextView
-                        android:id="@+id/artists_tv"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -95,14 +92,13 @@
                     app:layout_constraintTop_toBottomOf="@id/linear_header">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/colectors_button"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_80sdp"
                         app:cardCornerRadius="@dimen/_10sdp"
                         app:cardUseCompatPadding="true">
 
                         <ImageView
-                            android:id="@+id/colectors_img"
+                            android:id="@+id/collectors_img"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/cardview_dark_background"
@@ -111,7 +107,6 @@
                     </androidx.cardview.widget.CardView>
 
                     <TextView
-                        android:id="@+id/colectors_tv"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -126,7 +121,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/catalogo_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_30sdp"
@@ -136,7 +130,6 @@
                 app:layout_constraintTop_toBottomOf="@id/linear_selector">
 
                 <TextView
-                    android:id="@+id/catalog_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_15sdp"
