@@ -10,24 +10,45 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_marginStart="16dp">
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/collector_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="Nombre del coleccionista" />
+        <ImageView
+            android:id="@+id/collector_image"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circular"
+            android:src="@android:drawable/ic_menu_gallery"/>
 
-        <TextView
-            android:id="@+id/collector_email"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="Correo del coleccionista" />
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:id="@+id/collector_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="Nombre del coleccionista" />
+
+            <TextView
+                android:id="@+id/collector_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Correo del coleccionista" />
+
+            <TextView
+                android:id="@+id/collector_telephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Telefono del coleccionista" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

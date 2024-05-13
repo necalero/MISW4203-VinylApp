@@ -15,14 +15,12 @@ import com.vinyl.app.retrofit.CacheManager
 
 
 
-class MusicianViewModel(private val context: Context): ViewModel() {
+class MusicianViewModel(private val context: Context) : ViewModel() {
 
     private var musiciansLiveData = MutableLiveData<List<Musician>>()
     private val cacheManager = CacheManager.getInstance(context)
 
-    //private var musicianDetailLiveData = MutableLiveData<Musician>()
-
-    fun getMusicians(){
+    fun getMusicians() {
         val cachedMusicians = cacheManager.getMusicians()
         if (cachedMusicians.isNotEmpty()) {
             musiciansLiveData.value = cachedMusicians
@@ -35,22 +33,24 @@ class MusicianViewModel(private val context: Context): ViewModel() {
         RetrofitInstance.api.getMusicians().enqueue(object : Callback<List<Musician>> {
             override fun onResponse(call: Call<List<Musician>>, response: Response<List<Musician>>) {
                 if (response.isSuccessful) {
-                    val musicians : List<Musician> = response.body()!!
+                    val musicians: List<Musician> = response.body() ?: emptyList()
                     cacheManager.addMusicians(musicians)
                     musiciansLiveData.value = musicians
                 } else {
-                    return
+                    // Manejar caso de respuesta no exitosa
                 }
             }
 
             override fun onFailure(call: Call<List<Musician>>, t: Throwable) {
-                Log.d("MusicianDetailFragment", t.message.toString())
+                Log.e("MusicianDetailFragment", t.message.toString())
             }
         })
     }
+
     fun observeMusiciansLiveData(): LiveData<List<Musician>> {
         return musiciansLiveData
     }
+
 
     /*
     fun getMusician(id: String){
