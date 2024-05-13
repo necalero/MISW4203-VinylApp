@@ -13,7 +13,7 @@ interface VinylApi {
     fun getAlbums(): Call<List<Album>>
 
     @GET("musicians")
-    fun getMusicians(): Call<List<Musician>>
+    suspend fun getMusicians(): List<Musician>
 
     @GET("musicians/{id}")
     fun getMusician(@Path("id") id:String):Call<Musician>
