@@ -17,6 +17,10 @@ import retrofit2.Response
 class AlbumViewModel : ViewModel() {
 
     private var albumDetailLiveData = MutableLiveData<Album>()
+    // Private MutableLiveData for the creation status
+    private val _albumCreationStatus = MutableLiveData<Boolean>()
+    val albumCreationStatus: LiveData<Boolean>
+        get() = _albumCreationStatus
 
     fun getAlbum(id: String) {
         RetrofitInstance.api.getAlbum(id).enqueue(object : Callback<Album> {
@@ -36,6 +40,27 @@ class AlbumViewModel : ViewModel() {
             }
         })
     }
+
+
+    fun createAlbum(album: Album) {
+        RetrofitInstance.api.postAlbum(album).enqueue(object : Callback<Album> {
+            override fun onResponse(call: Call<Album>, response: Response<Album>) {
+                if (response.isSuccessful) {
+                    _albumCreationStatus.value = true
+                } else {
+                    _albumCreationStatus.value = false
+                    // Manejar caso de respuesta no exitosa
+                }
+            }
+
+            override fun onFailure(call: Call<Album>, t: Throwable) {
+                _albumCreationStatus.value = false
+                Log.e("AlbumViewModel", t.message.toString())
+            }
+        })
+    }
+
+
 
     fun observeAlbumLiveData(): LiveData<Album> {
         return albumDetailLiveData
