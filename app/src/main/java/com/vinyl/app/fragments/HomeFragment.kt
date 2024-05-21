@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
+import com.vinyl.app.activities.AlbumCreateActivity
 import com.vinyl.app.activities.AlbumDetailActivity
 import com.vinyl.app.activities.CollectorDetailActivity
 import com.vinyl.app.activities.CollectorListActivity
@@ -66,6 +67,7 @@ class HomeFragment : Fragment() {
 
         onArtistButtonClick()
         onCollectorButtonClick()
+        onCreateAlbumButtonClick()
 
 //
 //        loadAlbums()
@@ -79,12 +81,12 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun onAlbumButtonClick() {
-        binding.artistsButton.setOnClickListener {
-            val intent = Intent(activity, MusicianListActivity::class.java)
-            startActivity(intent)
-        }
-    }
+//    private fun onAlbumButtonClick() {
+//        binding.artistsButton.setOnClickListener {
+//            val intent = Intent(activity, MusicianListActivity::class.java)
+//            startActivity(intent)
+//        }
+//    }
 
     private fun onCollectorButtonClick() {
         binding.collectorsButton.setOnClickListener {
@@ -92,6 +94,13 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+    }
+
+    private fun onCreateAlbumButtonClick(){
+        binding.fabCreateAlbum.setOnClickListener{
+            val intent = Intent(activity, AlbumCreateActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun prepareAlbumListRecyclerView() {

@@ -7,6 +7,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Body
 
 interface VinylApi {
 
@@ -29,6 +30,6 @@ interface VinylApi {
     fun getCollector(@Path("id") id:String):Call<Collector>
 
     @POST("albums")
-    fun postAlbum(album: Album): Call<Album>
+    fun postAlbum(@Body album: Album): Call<Album>
 
 }
