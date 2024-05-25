@@ -5,7 +5,9 @@ import com.vinyl.app.pojo.Collector
 import com.vinyl.app.pojo.Musician
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Body
 
 interface VinylApi {
 
@@ -26,5 +28,8 @@ interface VinylApi {
 
     @GET("collectors/{id}")
     fun getCollector(@Path("id") id:String):Call<Collector>
+
+    @POST("albums")
+    fun postAlbum(@Body album: Album): Call<Album>
 
 }
