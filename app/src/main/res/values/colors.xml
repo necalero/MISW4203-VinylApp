@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color> <!-- Cambia el valor hexadecimal por el color principal de tu aplicación -->
     <color name="colorPrimaryDark">#303F9F</color> <!-- Cambia el valor hexadecimal por el color oscuro principal de tu aplicación -->
     <color name="colorAccent">#FF4081</color> <!-- Cambia el valor hexadecimal por el color de acento de tu aplicación -->
 </resources>
