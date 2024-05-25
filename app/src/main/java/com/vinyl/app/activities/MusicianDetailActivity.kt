@@ -33,7 +33,7 @@ class MusicianDetailActivity : AppCompatActivity() {
         Glide.with(applicationContext)
             .load(musicianImage)
             .into(binding.artistDetailImg)
-
+        binding.artistDetailImg.contentDescription = "Imagen de artista " + musicianName
         binding.artistNameTv.text = musicianName
         binding.artistBirthdateTv.text = musicianBirthDate
         binding.artistDescriptionTv.text = musicianDescription

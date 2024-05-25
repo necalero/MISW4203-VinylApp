@@ -28,7 +28,7 @@ class AlbumViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     val album: Album? = response.body()
                     if (album != null) {
-                        albumDetailLiveData.value = album
+                        albumDetailLiveData.value = album!!
                     }
                 } else {
                     // Manejar caso de respuesta no exitosa
