@@ -13,15 +13,18 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.vinyl.app.R
 import com.vinyl.app.databinding.FragmentAlbumDetailBinding
+import com.vinyl.app.databinding.FragmentHomeBinding
 import com.vinyl.app.pojo.Album
 import com.vinyl.app.viewmodel.AlbumViewModel
 class AlbumDetailFragment : Fragment() {
     private lateinit var viewModel: AlbumViewModel
+    private lateinit var binding: FragmentAlbumDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentAlbumDetailBinding.inflate(inflater, container, false)
         return inflater.inflate(R.layout.fragment_album_detail, container, false)
     }
 
