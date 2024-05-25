@@ -1,80 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp">
+
+    <!-- Otros campos de entrada -->
+    <EditText
+        android:id="@+id/albumNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Album Name" />
 
     <EditText
         android:id="@+id/albumCoverInput"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cover URL"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:hint="Album Cover URL" />
 
     <EditText
         android:id="@+id/albumDescriptionInput"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Description"
-        app:layout_constraintTop_toBottomOf="@id/albumCoverInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:hint="Description" />
 
-    <EditText
-        android:id="@+id/albumGenreInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Genre"
-        app:layout_constraintTop_toBottomOf="@id/albumDescriptionInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+    <Spinner
+        android:id="@+id/albumGenreSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/albumNameInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Name"
-        app:layout_constraintTop_toBottomOf="@id/albumGenreInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <EditText
-        android:id="@+id/albumRecordLabelInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Record Label"
-        app:layout_constraintTop_toBottomOf="@id/albumNameInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+    <Spinner
+        android:id="@+id/albumRecordLabelSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/albumReleaseDateInput"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Release Date"
-        app:layout_constraintTop_toBottomOf="@id/albumRecordLabelInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:focusable="false"
+        android:clickable="true" />
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create Album"
-        app:layout_constraintTop_toBottomOf="@id/albumReleaseDateInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:text="Create Album" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+
+
 
