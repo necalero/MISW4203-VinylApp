@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.vinyl.app.R
 import com.vinyl.app.pojo.Album
 import com.vinyl.app.viewmodel.AlbumViewModel
@@ -113,10 +114,10 @@ class AlbumCreateFragment : Fragment() {
                 onSuccess = {
                     Toast.makeText(requireContext(), "Album created successfully", Toast.LENGTH_SHORT).show()
                     Log.d("AlbumCreateFragment", "Album created successfully: $it")
-                    // Limpiar los campos o redirigir al usuario
+                    // Limpiar los campos
                     clearFields()
-                    // Redirigir al usuario, si es necesario
-                    // findNavController().navigate(R.id.action_albumCreateFragment_to_homeFragment)
+                    // Finalizar el fragmento y regresar al HomeFragment usando NavController
+                    findNavController().navigate(R.id.action_albumCreateFragment_to_homeFragment)
                 },
                 onFailure = {
                     Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
@@ -157,6 +158,8 @@ class AlbumCreateFragment : Fragment() {
         albumRecordLabelSpinner.setSelection(0)
     }
 }
+
+
 
 
 
