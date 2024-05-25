@@ -149,7 +149,23 @@
 
             </LinearLayout>
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabCreateAlbum"
+                android:contentDescription="Boton para crear un nuevo album"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:fabSize="normal"
+                app:backgroundTint="@color/colorAccent"
+                app:rippleColor="@color/colorPrimaryDark" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 

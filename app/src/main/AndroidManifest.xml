@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.AlbumCreateActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.CollectorListActivity"
             android:exported="false" />
         <activity
