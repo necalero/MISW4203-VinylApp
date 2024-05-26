@@ -2,6 +2,7 @@ package com.vinyl.app.retrofit
 
 import com.vinyl.app.pojo.Album
 import com.vinyl.app.pojo.Collector
+import com.vinyl.app.pojo.FavoriteInfo
 import com.vinyl.app.pojo.Musician
 import retrofit2.Call
 import retrofit2.http.GET
@@ -31,5 +32,12 @@ interface VinylApi {
 
     @POST("albums")
     fun postAlbum(@Body album: Album): Call<Album>
+
+    @POST("collectors/100/albums/{albumId}")
+    fun addAlbumToFavorites(
+        @Path("albumId") albumId: String,
+        @Body favoriteInfo: FavoriteInfo
+    ): Call<Void>
+
 
 }

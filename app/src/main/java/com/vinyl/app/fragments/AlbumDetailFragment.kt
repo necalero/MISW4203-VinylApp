@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -38,6 +39,20 @@ class AlbumDetailFragment : Fragment() {
 
         viewModel.observeAlbumLiveData().observe(viewLifecycleOwner) { album ->
             updateUI(view, album)
+        }
+        viewModel.favoriteStatus.observe(viewLifecycleOwner) { isFavorite ->
+            if (isFavorite) {
+                Toast.makeText(context, "Album agregado a favoritos", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Error al agregar a favoritos", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.addToFavoritesButton.setOnClickListener {
+            val collectorId = "100"
+            val price = 25000
+            val status = "Active"
+            viewModel.addAlbumToFavorites( albumId, price, status)
         }
     }
 
