@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.espresso.contrib)
+
     val navVersion = "2.7.7"
 
     implementation(libs.androidx.core.ktx)
@@ -55,6 +56,7 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.google.android.material:material:1.4.0")
 
     testImplementation("org.mockito:mockito-core:3.12.4")
 
