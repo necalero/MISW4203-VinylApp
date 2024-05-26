@@ -15,6 +15,7 @@
 
         <ImageView
             android:id="@+id/collector_image"
+            android:contentDescription="Imagen del coleccionista"
             android:layout_width="64dp"
             android:layout_height="64dp"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circular"
